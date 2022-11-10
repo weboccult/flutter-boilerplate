@@ -14,13 +14,13 @@ class Production extends Environment {
 
   @override
   String buildNumber() {
-    return "100";
+    return "1";
   }
 
 
   @override
   String appVersion() {
-    return "2.2.60";
+    return "1.0.0";
   }
 
   @override

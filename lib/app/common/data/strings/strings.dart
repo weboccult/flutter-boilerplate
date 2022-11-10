@@ -1,6 +1,12 @@
 import '../constants/constants.dart';
 
+
+
+
+/// add all your common application strings here!
 abstract class Strings {
+
+
     static const String appName = Constants.appName;
 
     ///--> Authentication Module

@@ -1,6 +1,6 @@
 name: flutter_boilerplate
-description: Flutter Boiler Plate to kick start your applications.!
-version: 0.0.1
+description: Flutter boilerplate to kick start your application development process. This Package includes ready use Project Structure, Basic Service Files and Ready to use Widgets.
+version: 0.0.3
 homepage: 'https://github.com/weboccult/flutter_boilerplate.git'
 
 environment:

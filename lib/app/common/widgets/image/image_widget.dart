@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+
+
+/// [NetworkImageWidget] is a network image global widget with error builder.
+///
+/// Even when url is [Null] or isEmpty String. [errorWidget] will be shown.
 class NetworkImageWidget extends StatelessWidget {
   final String? url;
   final Widget errorWidget;

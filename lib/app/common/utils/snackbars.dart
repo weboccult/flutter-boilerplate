@@ -2,13 +2,17 @@
 
 import 'package:flutter/material.dart';
 
+///
+/// Add Global Application Snack-bars here!!
+///
 
-enum SnackBarType { ERROR, INFO, SUCCESS, WARNING }
+
+// enum SnackBarType { ERROR, INFO, SUCCESS, WARNING }
 
 
 ///--> Get the SnackBar Color For different Response
- _getSnackBarColor(SnackBarType type) {
-  return Colors.black;
+//  _getSnackBarColor(SnackBarType type) {
+//   return Colors.black;
   // switch (type) {
   //   case SnackBarType.ERROR:
   //     return AppColors.red;
@@ -21,10 +25,10 @@ enum SnackBarType { ERROR, INFO, SUCCESS, WARNING }
   //   default:
   //     return AppColors.darkBlue;
   // }
-}
+// }
 
 ///--> Get the SnackBar Icon For different Response
- _getSnackBarIcon(SnackBarType type) {
+//  _getSnackBarIcon(SnackBarType type) {
   /*switch (type) {
     case SnackBarType.ERROR:
       return Container(
@@ -63,13 +67,12 @@ enum SnackBarType { ERROR, INFO, SUCCESS, WARNING }
             color: HexColor.fromHex(AppColors.white)),
       );
   }*/
-}
+// }
 
 
-///--> Show SnackBar
-showSnackBar(
-    {BuildContext? context,required String message, SnackBarType type = SnackBarType.SUCCESS}) {
-  ///Clearing all Snack bars!!
+// /--> Show SnackBar
+// showSnackBar(
+    // {BuildContext? context,required String message, SnackBarType type = SnackBarType.SUCCESS}) {
   /*ScaffoldMessenger.of(context ?? Get.context!).clearSnackBars();
   ScaffoldMessenger.of(context ?? Get.context!).showSnackBar(
     SnackBar(
@@ -98,4 +101,4 @@ showSnackBar(
       duration: const Duration(milliseconds: 1500),
     ),
   );*/
-}
+// }

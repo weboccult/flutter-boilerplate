@@ -3,6 +3,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 
+
+///NOTE: In-Development.
+///
+/// Use this [ComputeWidget] for heaving processing of data in another Isolate using [compute] method.
 class ComputeWidget<T> extends StatelessWidget {
   final Map<String,dynamic> data;
   final FutureOr<T> Function(dynamic) computeFunction;
@@ -12,12 +16,7 @@ class ComputeWidget<T> extends StatelessWidget {
   final Widget Function(T? data) builder;
   const ComputeWidget({Key? key, required this.builder, required this.loader, required this.errorWidget,
     this.errorOrEmptyCondition = errorOrEmptyConditionHandler,required this.data, required this.computeFunction}) : super(key: key);
-
   static bool errorOrEmptyConditionHandler(data) => false;
-
-
-
-
 
 
   @override

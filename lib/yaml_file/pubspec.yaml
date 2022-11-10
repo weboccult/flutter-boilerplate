@@ -1,13 +1,13 @@
 #---------------------------------------------------------------------------------
 # Add Project Name, Description and Version Here
 #---------------------------------------------------------------------------------
-# for more info visit : TODO: add PACKAGE URL here.!!
+# for more info visit : https://pub.dev/packages/flutter_boilerplate
 #---------------------------------------------------------------------------------
 
 
 name: 'replace_this_name_with_your_project_name'
 description: 'replace_this_description_with_your_project_description'
-version: 0.0.1
+version: 0.0.3
 
 environment:
   sdk: '>=2.18.2 <3.0.0'
@@ -31,7 +31,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.1
-  flutter_boilerplate: ^0.0.1
+  flutter_boilerplate: ^0.0.3
 
 
 # For information on the generic Dart part of this file, see the
@@ -39,6 +39,7 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  uses-material-design: true
   # To add assets to your package, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

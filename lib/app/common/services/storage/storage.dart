@@ -1,7 +1,8 @@
 
 import 'package:get_storage/get_storage.dart';
 
-abstract class AppStorage {
+/// [GetStorage] Service instance File to Store,Update,Delete And Clear [StorageService].
+abstract class StorageService {
   static final GetStorage _storage = GetStorage();
 
   static GetStorage get storage => _storage;
@@ -15,7 +16,6 @@ abstract class AppStorage {
   static Future<void> updateNewValue(String key, dynamic value) async {
     if(getValue(key) != value) _storage.write(key, value);
   }
-
 
   static T? getValue<T>(String key) => _storage.read<T>(key);
 

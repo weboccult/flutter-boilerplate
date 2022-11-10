@@ -3,11 +3,14 @@ import 'package:dio/dio.dart';
 import '../log/log.dart';
 import 'base_http.dart';
 
-///--> Interceptor
+///[BaseHttp] Base-Interceptor.
+///
+/// Handle your errors, auth-check and more of your http requests here!
 class BaseInterceptor implements InterceptorsWrapper {
 
-
-
+  ///Set basic headers of your application with custom token and fields here!
+  ///
+  /// [BaseHttp] default headers can also be used.
   getHeaders() {
     var headers = <String, String>{'Content-Type': 'application/json'};
     String? token = BaseHttp.getToken();
@@ -17,27 +20,29 @@ class BaseInterceptor implements InterceptorsWrapper {
     return headers;
   }
 
+  ///error handler of [BaseHttp].
   @override
   void onError(DioError err, ErrorInterceptorHandler handler) {
-    // TODO: implement onError
-
     kLog("onError Interceptor $err");
-    kLog("onError Interceptor ${err.message}");
+
+    handler.next(err);
   }
 
+
+  ///request handler of [BaseHttp].
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     kLog("onRequest Interceptor ${options.uri}");
-    // TODO: implement onRequest
 
     options.headers = getHeaders();
     handler.next(options);
   }
 
+
+  ///response handler of [BaseHttp].
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     kLog("onResponse Interceptor ${response.data}");
-    // TODO: implement onResponse
 
     handler.next(response);
   }

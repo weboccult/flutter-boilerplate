@@ -2,6 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 import '../../services/storage/storage.dart';
 
+
+
+/// [StorageListenerWidget] listens to a specific value of [GetStorage].
+///
+/// Specify the [listenKey] which you want to listen.
+///
+/// Specify the [storage] which has the key you want to listen.
+/// By Default [StorageService.storage] is used.
+///
+/// [builder] function will return the stored value.
+///
 class StorageListenerWidget extends StatefulWidget {
   final String listenKey;
   final GetStorage? storage;
@@ -24,7 +35,7 @@ class _StorageListenerWidgetState extends State<StorageListenerWidget> {
     if(widget.storage != null) {
       widget.storage!.listenKey(widget.listenKey,_listeningCallBack);
     } else {
-      AppStorage.storage.listenKey(widget.listenKey,_listeningCallBack);
+      StorageService.storage.listenKey(widget.listenKey,_listeningCallBack);
     }
     WidgetsBinding.instance.addPostFrameCallback((_) {
       isBuildDone = true;
@@ -41,9 +52,9 @@ class _StorageListenerWidgetState extends State<StorageListenerWidget> {
   @override
   Widget build(BuildContext context) {
     if(widget.storage != null) {
-      return widget.builder(AppStorage.storage.read(widget.listenKey));
+      return widget.builder(StorageService.storage.read(widget.listenKey));
     } else {
-      return widget.builder(AppStorage.storage.read(widget.listenKey));
+      return widget.builder(StorageService.storage.read(widget.listenKey));
     }
 
   }

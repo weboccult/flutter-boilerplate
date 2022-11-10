@@ -3,46 +3,55 @@ import 'package:flutter/material.dart';
 import '../services/navigation/navigation.dart';
 
 
+
+/// [CustomLoaders] class includes basic Circular Process Loaders.
+///
+/// It also includes [loaderDialog] which can be used as full-screen loaders while loading something.
+///
+/// It also includes [ImageLoadingBuilder] which can be used as image loader while fetching Images from [Image.network]
+///
 abstract class CustomLoaders {
 
-  static customLoader() {
+  /// Circular Progress Indicator.
+  static circularLoader({double size = 50.0,Color? color,double? strokeWidth}) {
     return Center(
       child: Container(
-        width: 50.0,
-        height: 50.0,
+        width: size,
+        height: size,
         alignment: Alignment.center,
-        child:  const CircularProgressIndicator(
-          valueColor:  AlwaysStoppedAnimation<Color>(Colors.black),
+        child:  CircularProgressIndicator(
+          strokeWidth: strokeWidth ?? 4.0,
+          valueColor:  AlwaysStoppedAnimation<Color>(color ?? Colors.black),
         ) ,
       ),
     );
   }
 
 
-  static bool isLoading = false;
-  static getXLoader({bool? show}) {
+  /// Loading status.
+  static get isLoading => _isLoading;
+  static set setLoading(bool value) => _isLoading = value;
+  static bool _isLoading = false;
+  /// Full Screen Loading Dialog.
+  static loaderDialog({bool? show,double loaderSize = 50.0,Color? color,double? strokeWidth}) {
     if (show!) {
-      isLoading = show;
+      _isLoading = show;
       showDialog(context: navigationService.context, builder: (context) {
         return WillPopScope(
           onWillPop: () => Future.value(false),
-          child: const Center(
-            child:  CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(Colors.black),
-            ) ,
-          ),
+          child: circularLoader(color: color,size: loaderSize,strokeWidth: strokeWidth)
         );
       },);
     } else {
-      if(isLoading) {
-        isLoading = show;
+      if(_isLoading) {
+        _isLoading = show;
         navigationService.back();
       }
     }
   }
 
 
-
+  /// Image loading builder.
   static Widget imageLoadingBuilder(BuildContext context, Widget child,
       ImageChunkEvent? loadingProgress) {
     if (loadingProgress == null) return child;

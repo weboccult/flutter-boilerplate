@@ -1,9 +1,7 @@
 
-
-
-import 'package:base_application/app/common/utils/utils.dart';
-
+import '../utils/utils.dart';
 import '../data/strings/strings.dart';
+
 
 
 

@@ -1,15 +1,22 @@
-
-
-//CHANGE TO SHOW LOGS OR NOT
 import 'dart:developer';
 import 'package:flutter/foundation.dart';
 
-enum LogStatus { INFO, WARNING, ERROR }
-enum LogTypes { ALL ,INFO, WARNING, ERROR, NONE }
+
+
 
 
 const LogTypes showLogs = LogTypes.ALL;
-/// log function
+
+
+/// Log function of application.
+///
+/// Use this function for logs in your application. you can use it by calling [kLog].
+///
+/// Logs can also be filtered using [showLogs].
+///
+/// For better logging always use [tag] & [LogStatus] in [kLog].
+///
+///
 kLog(String message,{String tag = "TAG",writeLog = false,LogStatus logStatus = LogStatus.INFO}) {
   switch(showLogs) {
     case(LogTypes.ALL):
@@ -32,12 +39,13 @@ kLog(String message,{String tag = "TAG",writeLog = false,LogStatus logStatus = L
   }
 
   if(writeLog) {
-    //TODO: add log write functionality in text file
     // logService.writeLog("[$tag] :: $message", logStatus);
   }
 }
 
 
+
+///In Development. Write logs to file functionality.
 writeLog(String message,LogStatus tag) {
   // String documentsPath = "/storage/emulated/0/Documents/rymedy_logs";
   // // create documents log directory
@@ -49,15 +57,6 @@ writeLog(String message,LogStatus tag) {
 }
 
 
-
-class LogServices {
-  //---> Singleton Creation
-  static final LogServices _service = LogServices._internal();
-  factory LogServices() => _service;
-  LogServices._internal();
-
-
-
-
-
-}
+/// log types
+enum LogStatus { INFO, WARNING, ERROR }
+enum LogTypes { ALL ,INFO, WARNING, ERROR, NONE }

@@ -32,7 +32,7 @@ class Helper {
 * */
   static Future<void> get baseProjectStructureInit => _createBaseProjectStructure();
   static  _createBaseProjectStructure() async {
-    Uri? baseAppFolder = await Isolate.resolvePackageUri(Uri(scheme: 'package', path: 'base_application/app/'));
+    Uri? baseAppFolder = await Isolate.resolvePackageUri(Uri(scheme: 'package', path: 'flutter_boilerplate/app/'));
     String? baseAppPath = baseAppFolder?.path;
     if(baseAppPath == null) { return;}
     await copyPath(baseAppPath,'lib/');
@@ -40,7 +40,7 @@ class Helper {
 
 
   static _updateYAMLFilesToProject(String fileName) async {
-    Uri? fileUri = await Isolate.resolvePackageUri(Uri(scheme: 'package', path: 'base_application/yaml_file/$fileName'));
+    Uri? fileUri = await Isolate.resolvePackageUri(Uri(scheme: 'package', path: 'flutter_boilerplate/yaml_file/$fileName'));
     Uint8List data = File(fileUri!.path).readAsBytesSync();
     File file = File(fileName);
     if(!file.existsSync()) {

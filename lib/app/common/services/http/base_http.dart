@@ -7,11 +7,20 @@ import '../log/log.dart';
 import 'base_interceptor.dart';
 
 
-
+///--> Single instance of base http.
 final BaseHttp baseHttp = BaseHttp();
 
+
 enum AuthStatus {valid,inValid}
-///--> Base Http
+
+/// Base Http service file.
+///
+///=> It contains all the basic required things for calling apis.
+///
+///=> It also contains http cache data storage using [GetStorage]
+///
+///=> All Authentication Services are also included. i.e :- Storing auth_data,token. Using Interceptors. declaring base api.
+///
 class BaseHttp {
   //---> Singleton Creation
   static final BaseHttp _service = BaseHttp._internal();
@@ -37,27 +46,48 @@ class BaseHttp {
       kLog("error in api cache initialization..", logStatus: LogStatus.ERROR, tag: classTag);
     }
   }
-  ///-------- INITIALIZATION -----------
-  static String baseURL = "https://jsonplaceholder.typicode.com/";
+
+  /// Set BASE-URL here!!
+  static String baseURL = "";
+  /// Set MAX-REDIRECTS here!!
   static int maxRedirects = 3;
   static final Dio _dio = Dio(BaseOptions(baseUrl: baseURL, maxRedirects: maxRedirects, receiveDataWhenStatusError: true));
+
+
+
+  ///Initialization of API services[BaseHttp]
+  ///
+  /// It includes following things.
+  ///
+  /// => Initialization of Http Cache Storage ('api_cache_container')
+  ///
+  /// => Base Interceptor [BaseInterceptor] Initialization.
+  ///
+  /// => Listen to Auth Status Token Changes.
   static initializeAPIServices() async {
     await _initializeStorage();
     await _interceptorsInitialization();
     await _listenToTokenChanges();
   }
+
+
   /// append an interceptor from here.
   /// all interceptors added in a row are executed one after another
   static appendInterceptor(InterceptorsWrapper interceptor) => _dio.interceptors.add(interceptor);
-
-
   static _interceptorsInitialization() {
     // TODO: add more interceptors here!
     _dio.interceptors.add(BaseInterceptor());
   }
-  ///-------------------------------------
 
-  // TOKEN FUNCTIONALITY
+
+  /// Store Token Functionality.
+  ///
+  ///Token is used to verify authentication status in the app.
+  ///If storage has stored_token then authentication status is VALID ([AuthStatus.valid])
+  ///and if there is no token authentication status is INVALID ([AuthStatus.inValid]).
+  ///
+  /// Always use [BaseHttp] [clearCacheStorage] function when you need to clear token or make authentication status [AuthStatus.inValid]\
+  ///
   static storeToken(String token) async {
     try {
       await _storage.write(_tokenStorageKey, token);
@@ -65,6 +95,11 @@ class BaseHttp {
       kLog("Error storing token!",tag: classTag,logStatus: LogStatus.ERROR);
     }
   }
+
+  /// Get value of Stored Token.
+  ///
+  /// returns [null] if no token is found.
+  ///
   static String? getToken() {
     try {
       return _storage.read(_tokenStorageKey);
@@ -73,6 +108,9 @@ class BaseHttp {
     }
     return null;
   }
+
+  /// Clears the [apiCacheStorage] and clears the Stored Token.
+  ///
   static clearCacheStorage() async {
     await _storage.write(_tokenStorageKey,_tokenNotFoundKey);
     await _storage.erase();
@@ -81,15 +119,31 @@ class BaseHttp {
   static final _authCheckResponse = StreamController<AuthStatus>();
  static void Function(AuthStatus) get _addAuthStatus => _authCheckResponse.sink.add;
   static Stream<AuthStatus> get getAuthenticationStream => _authCheckResponse.stream;
+  /// Closes the auth status_check.
+  ///
+  /// Call this function on application close.
+  static closeAuthStatusResponse() => _authCheckResponse.close();
+
+
   static _listenToTokenChanges() async {
     if(!_storage.hasData(_tokenStorageKey)) await _storage.write(_tokenStorageKey,_tokenNotFoundKey);
     _storage.listenKey(_tokenStorageKey,(_) => checkAuthStatus());
   }
+
+  /// Check authentication status.
   static checkAuthStatus() => _addAuthStatus(_storage.read(_tokenStorageKey) != null && _storage.read(_tokenStorageKey) != _tokenNotFoundKey ? AuthStatus.valid : AuthStatus.inValid);
-  // AUTH DATA FUNCTIONALITY
+
+  ///Store authentication data in [apiCacheStorage].
   static storeAuthData(Map<String,dynamic>? data) {try {_storage.write(_authDataStorageKey, data);} catch(e) {kLog("Error storing auth data!",tag: classTag,logStatus: LogStatus.ERROR);}}
+
+  ///Get authentication data in [apiCacheStorage].
   static getAuthData() {try {return _storage.read(_authDataStorageKey);} catch(e) {kLog("Error getting auth data!",tag: classTag,logStatus: LogStatus.ERROR);}return null;}
-  // SET DEFAULT HEADERS
+
+
+
+  ///Store Default Headers for HTTP Requests.
+  ///
+  /// This function will only store the headers in [apiCacheStorage].
   static storeDefaultHeaders(Map<String,dynamic>? header) async {
     try {
       await _storage.write(_defaultHeadersStorageKey, header);
@@ -97,6 +151,11 @@ class BaseHttp {
       kLog("Error storing token!",tag: classTag,logStatus: LogStatus.ERROR);
     }
   }
+
+
+  /// Get Default Headers for HTTP Requests.
+  ///
+  /// This function returns the stored header in [apiCacheStorage].
   static getDefaultHeaders() {
     try {return _storage.read(_defaultHeadersStorageKey);
     } catch(e) {
@@ -105,6 +164,13 @@ class BaseHttp {
     return null;
   }
 
+
+  /// get request in form of stream.
+  ///
+  /// NOTE: Still in development.
+  ///
+  /// A [StreamBuilder] Widget can be used to get this data. first it will return the cache data and then the response data.
+  ///
   Stream getStream({required String endPointURL,Map<String,dynamic>? queryParameters,Map<String,dynamic>? header,bool useCache = true}) async* {
     if(useCache && _storage.hasData(endPointURL)) yield _storage.read(endPointURL);
     Response response = await _dio.get(endPointURL,options: Options(headers: header),queryParameters: queryParameters);
@@ -116,8 +182,10 @@ class BaseHttp {
     }
   }
 
-
-  Future<dynamic> get({required String endPointURL,Map<String,dynamic>? queryParameters,Map<String,dynamic>? header,bool addToCache = true}) async {
+  /// Base HTTP get request.
+  ///
+  /// By default it will store data in [apiCacheStorage] with [endPointURL] as Storage Key.
+  Future<T?> get<T>({required String endPointURL,Map<String,dynamic>? queryParameters,Map<String,dynamic>? header,bool addToCache = true}) async {
     Response response = await _dio.get(endPointURL,options: Options(headers: header),queryParameters: queryParameters);
     if(response.statusCode == 200) {
       if(addToCache) _storage.write(endPointURL, response.data);
@@ -126,7 +194,11 @@ class BaseHttp {
       return null;
     }
   }
-  Future<dynamic> post({required String endPointURL,Map<String,dynamic>? data,Map<String,dynamic>? header,bool addToCache = true}) async {
+
+  /// Base HTTP post request.
+  ///
+  /// By default it will store data in [apiCacheStorage] with [endPointURL] as Storage Key.
+  Future<T?> post<T>({required String endPointURL,Map<String,dynamic>? data,Map<String,dynamic>? header,bool addToCache = true}) async {
     Response response = await _dio.post(endPointURL,data: data,options: Options(headers: header));
     if(response.statusCode == 200) {
       if(addToCache) _storage.write(endPointURL, response.data);

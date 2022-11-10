@@ -1,3 +1,6 @@
-## 0.0.1
+## 0.0.3
 
-* updated readme file and formatted documentations.
+* added Example File and solved conflicts.
+* added proper comments and guidelines.
+* included Custom Widgets in Readme.md file.
+* Formated readme.md file.

@@ -4,13 +4,15 @@ import '../../modules/initial/pages/initial_page.dart';
 
 
 
-
+/// define all of your application routes here!!
 abstract class Routes {
   ///--> define your routes here!
   static const INITIAL = '/initial';
 
 }
 
+
+/// define all of your route services here!!
 abstract class RouteServices {
   const RouteServices._();
 

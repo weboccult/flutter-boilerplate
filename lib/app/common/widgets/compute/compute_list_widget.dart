@@ -2,6 +2,11 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+
+
+///NOTE: In-Development.
+///
+/// Use this [ComputeListWidget] for heaving processing of list data in another Isolate using [compute] method.
 class ComputeListWidget<T> extends StatefulWidget {
   final List<dynamic> dataList;
   final FutureOr<List<T>> Function(dynamic) computeFunction;
