@@ -14,12 +14,10 @@ import 'lifecycle_handler.dart';
 /// You can also add an error builder widget whenever your application crashes here.
 ///
 abstract class Initializer {
-
   static const initializerTag = 'Initialization';
 
   /// [init] method wraps the [runApp] method.
   static init(VoidCallback runApp) {
-
     ErrorWidget.builder = (errorDetails) {
       ///Add Error widget
       return Container();
@@ -29,15 +27,14 @@ abstract class Initializer {
       WidgetsFlutterBinding.ensureInitialized();
       FlutterError.onError = (details) {
         FlutterError.dumpErrorToConsole(details);
-        kLog( details.stack.toString(),logStatus: LogStatus.ERROR,tag: initializerTag);
+        kLog(details.stack.toString(), logStatus: LogStatus.ERROR, tag: initializerTag);
       };
       await _initServices();
       runApp();
     }, (error, stack) {
-      kLog('runZonedGuarded: ${error.toString()}',logStatus: LogStatus.ERROR,tag: initializerTag);
+      kLog('runZonedGuarded: ${error.toString()}', logStatus: LogStatus.ERROR, tag: initializerTag);
     });
   }
-
 
   ///application services initializations.
   ///
@@ -53,7 +50,6 @@ abstract class Initializer {
       rethrow;
     }
   }
-
 
   /// [BaseHttp] service initialization
   static Future<void> _initBaseHTTPService() async {
@@ -73,7 +69,3 @@ abstract class Initializer {
     ]);
   }
 }
-
-
-
-

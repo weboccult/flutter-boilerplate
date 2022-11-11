@@ -2,28 +2,24 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-
-
 ///NOTE: In-Development.
 ///
 /// Use this [ComputeWidget] for heaving processing of data in another Isolate using [compute] method.
 class ComputeWidget<T> extends StatelessWidget {
-  final Map<String,dynamic> data;
+  final Map<String, dynamic> data;
   final FutureOr<T> Function(dynamic) computeFunction;
   final Widget loader;
   final Widget errorWidget;
   final bool Function(T? data) errorOrEmptyCondition;
   final Widget Function(T? data) builder;
-  const ComputeWidget({Key? key, required this.builder, required this.loader, required this.errorWidget,
-    this.errorOrEmptyCondition = errorOrEmptyConditionHandler,required this.data, required this.computeFunction}) : super(key: key);
+  const ComputeWidget({Key? key, required this.builder, required this.loader, required this.errorWidget, this.errorOrEmptyCondition = errorOrEmptyConditionHandler, required this.data, required this.computeFunction}) : super(key: key);
   static bool errorOrEmptyConditionHandler(data) => false;
-
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<T>(
-      future: compute(computeFunction,data),
-      builder: (context,AsyncSnapshot<T> snapshot) {
+      future: compute(computeFunction, data),
+      builder: (context, AsyncSnapshot<T> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting && !snapshot.hasData) {
           return loader;
         }
@@ -35,6 +31,3 @@ class ComputeWidget<T> extends StatelessWidget {
     );
   }
 }
-
-
-

@@ -1,10 +1,7 @@
 import 'dart:developer';
-
 import 'package:google_sign_in/google_sign_in.dart';
 
-
-class GoogleAuth  {
-
+class GoogleAuth {
   static final GoogleAuth _auth = GoogleAuth._internal();
 
   factory GoogleAuth() {
@@ -13,13 +10,8 @@ class GoogleAuth  {
 
   GoogleAuth._internal();
 
-
-
   final GoogleSignIn _googleSignIn = GoogleSignIn(
-    scopes: [
-      'email',
-      "https://www.googleapis.com/auth/userinfo.profile"
-    ],
+    scopes: ['email', "https://www.googleapis.com/auth/userinfo.profile"],
   );
 
   Future<GoogleSignInAccount?>? getGoogleUser() async {
@@ -35,7 +27,7 @@ class GoogleAuth  {
     try {
       await _googleSignIn.signOut();
       return true;
-    } catch(e) {
+    } catch (e) {
       log("google sign-out error -> $e");
     }
     return false;

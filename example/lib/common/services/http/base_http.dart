@@ -52,7 +52,7 @@ class BaseHttp {
 
 
   static _interceptorsInitialization() {
-    // TODO: add more interceptors here!
+    // add more interceptors here!
     _dio.interceptors.add(BaseInterceptor());
   }
   ///-------------------------------------

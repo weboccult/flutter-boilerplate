@@ -1,7 +1,8 @@
 name: flutter_boilerplate
 description: Flutter boilerplate to kick start your application development process. This Package includes ready use Project Structure, Basic Service Files and Ready to use Widgets.
-version: 0.0.3
-homepage: 'https://github.com/weboccult/flutter_boilerplate.git'
+# Don't forget to update version in files :- [CHANGELOG.md], [README.md] & [lib/yaml_file/pubspec.yaml].
+version: 0.0.5
+homepage: 'https://github.com/weboccult/flutter_boilerplate/tree/0.5.0'
 
 environment:
   sdk: '>=2.18.2 <3.0.0'
@@ -28,7 +29,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^2.0.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

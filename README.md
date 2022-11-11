@@ -17,7 +17,7 @@ All the Basic Project Files are directly included in your `lib` folder, hence yo
 
 ```yaml
 dependencies:
-  flutter_boilerplate: ^0.0.3
+  flutter_boilerplate: ^0.0.5
 ```
 
 
@@ -37,12 +37,13 @@ All required YAML files will be imported to your project directly after running 
 
 ### Included Modules/Packages/Plugins:
 
-| Module name          | argument             | package version | latest version |
-|----------------------|----------------------|-----------------|----------------|
-| Responsive Framework | responsive_framework | ^0.2.0| [![pub package](https://img.shields.io/pub/v/responsive_framework.svg)](https://pub.dev/packages/responsive_framework) |
-| Dio | dio | ^4.0.6 | [![pub package](https://img.shields.io/pub/v/dio.svg)](https://pub.dev/packages/dio) |
-| Get Storage | get_storage | ^2.0.3 | [![pub package](https://img.shields.io/pub/v/get_storage.svg)](https://pub.dev/packages/get_storage) |
-| Path Provider | path_provider | ^2.0.11 | [![pub package](https://img.shields.io/pub/v/speech_to_text.svg)](https://pub.dev/packages/path_provider) |
+| Module name            | package version      | latest version                                                                                                         |
+|------------------------|----------------------|------------------------------------------------------------------------------------------------------------------------|
+| Responsive Framework   | 0.2.0                | [![pub package](https://img.shields.io/pub/v/responsive_framework.svg)](https://pub.dev/packages/responsive_framework) |
+| Dio                    | 4.0.6                | [![pub package](https://img.shields.io/pub/v/dio.svg)](https://pub.dev/packages/dio)                                   |
+| Get Storage            | 2.0.3                | [![pub package](https://img.shields.io/pub/v/get_storage.svg)](https://pub.dev/packages/get_storage)                   |
+| Path Provider          | 2.0.11               | [![pub package](https://img.shields.io/pub/v/speech_to_text.svg)](https://pub.dev/packages/path_provider)              |
+
 
 ## Ready to use Service Widgets:
 
@@ -433,14 +434,14 @@ flutter pub run flutter_boilerplate:add <arguments>
 
 ## Optional Modules
 
-| Module name          | argument             | package version | latest version |
-|----------------------|----------------------|-----------------|----------------|
-| Audio Player | audio_player | ^3.0.5 | [![pub package](https://img.shields.io/pub/v/assets_audio_player.svg)](https://pub.dev/packages/assets_audio_player) |
-| Apple Sign-in | apple_authentication | ^4.2.0 | [![pub package](https://img.shields.io/pub/v/sign_in_with_apple.svg)](https://pub.dev/packages/sign_in_with_apple) |
-| Google Sign-in | google_authentication | ^5.4.2 | [![pub package](https://img.shields.io/pub/v/google_sign_in.svg)](https://pub.dev/packages/google_sign_in) |
-| Speech to Text | speech_to_text | ^6.1.0 | [![pub package](https://img.shields.io/pub/v/speech_to_text.svg)](https://pub.dev/packages/speech_to_text) |
-| Text to Speech | text_to_speech | ^3.5.3 | [![pub package](https://img.shields.io/pub/v/text_to_speech.svg)](https://pub.dev/packages/text_to_speech) |
-| Image Compress* | image_service | ^6.1.0 | [![pub package](https://img.shields.io/pub/v/flutter_image_compress.svg)](https://pub.dev/packages/flutter_image_compress) |
+| Module name     | argument              | package version | latest version                                                                                                             |
+|-----------------|-----------------------|-----------------|----------------------------------------------------------------------------------------------------------------------------|
+| Audio Player    | audio_player          | 3.0.5           | [![pub package](https://img.shields.io/pub/v/assets_audio_player.svg)](https://pub.dev/packages/assets_audio_player)       |
+| Apple Sign-in   | apple_authentication  | 4.2.0           | [![pub package](https://img.shields.io/pub/v/sign_in_with_apple.svg)](https://pub.dev/packages/sign_in_with_apple)         |
+| Google Sign-in  | google_authentication | 5.4.2           | [![pub package](https://img.shields.io/pub/v/google_sign_in.svg)](https://pub.dev/packages/google_sign_in)                 |
+| Speech to Text  | speech_to_text        | 6.1.0           | [![pub package](https://img.shields.io/pub/v/speech_to_text.svg)](https://pub.dev/packages/speech_to_text)                 |
+| Text to Speech  | text_to_speech        | 3.5.3           | [![pub package](https://img.shields.io/pub/v/text_to_speech.svg)](https://pub.dev/packages/text_to_speech)                 |
+| Image Compress* | image_service         | 6.1.0           | [![pub package](https://img.shields.io/pub/v/flutter_image_compress.svg)](https://pub.dev/packages/flutter_image_compress) |
 
 ### Project Structure:
 

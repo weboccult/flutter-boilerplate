@@ -1,35 +1,29 @@
-
-
-import 'package:flutter/material.dart';
-
 ///
 /// Add Global Application Snack-bars here!!
 ///
 
-
 // enum SnackBarType { ERROR, INFO, SUCCESS, WARNING }
-
 
 ///--> Get the SnackBar Color For different Response
 //  _getSnackBarColor(SnackBarType type) {
 //   return Colors.black;
-  // switch (type) {
-  //   case SnackBarType.ERROR:
-  //     return AppColors.red;
-  //   case SnackBarType.WARNING:
-  //     return AppColors.red;
-  //   case SnackBarType.INFO:
-  //     return AppColors.darkBlue;
-  //   case SnackBarType.SUCCESS:
-  //     return AppColors.darkBlue;
-  //   default:
-  //     return AppColors.darkBlue;
-  // }
+// switch (type) {
+//   case SnackBarType.ERROR:
+//     return AppColors.red;
+//   case SnackBarType.WARNING:
+//     return AppColors.red;
+//   case SnackBarType.INFO:
+//     return AppColors.darkBlue;
+//   case SnackBarType.SUCCESS:
+//     return AppColors.darkBlue;
+//   default:
+//     return AppColors.darkBlue;
+// }
 // }
 
 ///--> Get the SnackBar Icon For different Response
 //  _getSnackBarIcon(SnackBarType type) {
-  /*switch (type) {
+/*switch (type) {
     case SnackBarType.ERROR:
       return Container(
           margin: const EdgeInsets.only(right: 10.0, bottom: 2.0),
@@ -69,11 +63,10 @@ import 'package:flutter/material.dart';
   }*/
 // }
 
-
 // /--> Show SnackBar
 // showSnackBar(
-    // {BuildContext? context,required String message, SnackBarType type = SnackBarType.SUCCESS}) {
-  /*ScaffoldMessenger.of(context ?? Get.context!).clearSnackBars();
+// {BuildContext? context,required String message, SnackBarType type = SnackBarType.SUCCESS}) {
+/*ScaffoldMessenger.of(context ?? Get.context!).clearSnackBars();
   ScaffoldMessenger.of(context ?? Get.context!).showSnackBar(
     SnackBar(
       content: Row(

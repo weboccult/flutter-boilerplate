@@ -10,7 +10,7 @@ import 'lifecycle_handler.dart';
 abstract class Initializer {
   static init(VoidCallback runApp) {
     ErrorWidget.builder = (errorDetails) {
-      //TODO: add error widget
+      /// add error widget
       return Container();
     };
 

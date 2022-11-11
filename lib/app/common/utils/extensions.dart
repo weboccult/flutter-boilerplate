@@ -3,11 +3,7 @@ import 'dart:io';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 
-
-
-
 extension HexColor on Color {
-
   /// Convert HexString to flutter inbuilt colors.
   static Color fromHex(String hexString) {
     final buffer = StringBuffer();
@@ -24,11 +20,8 @@ extension HexColor on Color {
       '${blue.toRadixString(16).padLeft(2, '0')}';
 }
 
-
-
 /// Strings Convert Extensions.
 extension Convert on String {
-
   /// Convert an Image Path directly to base64 encoded String.
   Future<String> imagePathToBase64String() async {
     Uint8List tempList = await File(this).readAsBytes();
@@ -44,6 +37,5 @@ extension Convert on String {
   }
 
   /// Capitalization of First letter in a Strings
-  String toCapitalized() => length > 0 ?'${this[0].toUpperCase()}${substring(1).toLowerCase()}':'';
+  String toCapitalized() => length > 0 ? '${this[0].toUpperCase()}${substring(1).toLowerCase()}' : '';
 }
-

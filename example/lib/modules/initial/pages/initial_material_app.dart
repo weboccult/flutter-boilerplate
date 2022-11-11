@@ -15,7 +15,7 @@ class InitMaterialApp extends StatelessWidget {
     return  MaterialApp(
       title: Constants.appName,
       debugShowCheckedModeBanner: false,
-      //TODO: use onGenerateRoute for Custom Routing/Navigation Animations
+      ///use onGenerateRoute for Custom Routing/Navigation Animations
       // onGenerateRoute: (settings) => Routes.onGenerateRoute(settings,context),
       initialRoute: RouteServices.STARTING_POINT,
       routes: RouteServices.routes,

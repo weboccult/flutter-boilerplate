@@ -2,11 +2,7 @@ import 'dart:developer';
 import 'package:flutter/foundation.dart';
 
 
-
-
-
 const LogTypes showLogs = LogTypes.ALL;
-
 
 /// Log function of application.
 ///
@@ -52,8 +48,6 @@ writeLog(String message,LogStatus tag) {
   // if(!Directory(documentsPath).existsSync()) {
   //   Directory(documentsPath).createSync(recursive: true);
   // }
-
-
 }
 
 

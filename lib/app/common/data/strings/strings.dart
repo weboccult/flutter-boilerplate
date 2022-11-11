@@ -1,9 +1,8 @@
 import '../constants/constants.dart';
 
-
-
-
+///
 /// add all your common application strings here!
+///
 abstract class Strings {
 
 

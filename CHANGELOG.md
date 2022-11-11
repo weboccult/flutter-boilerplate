@@ -1,6 +1,4 @@
-## 0.0.3
+## 0.0.5
 
-* added Example File and solved conflicts.
-* added proper comments and guidelines.
-* included Custom Widgets in Readme.md file.
-* Formated readme.md file.
+* solved static analysis conflicts.
+* formatted documents.

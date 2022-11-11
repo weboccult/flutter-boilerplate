@@ -32,13 +32,10 @@ class _InitialPageState extends State<InitialPage> {
       stream: BaseHttp.getAuthenticationStream,
       builder: (context,AsyncSnapshot<AuthStatus> snapshot) {
         if(snapshot.data == AuthStatus.valid) {
-          //TODO: ADD your application Home Page
           return const HomePage();
         } else if(snapshot.data == AuthStatus.inValid) {
-          //TODO: ADD your application Auth Page
           return  const AuthenticationPage();
         }
-        //TODO: ADD your application Loading or Initial Screen Page
         return Container();
       },
     );

@@ -5,7 +5,6 @@ import 'package:flutter_boilerplate/app/modules/initial/pages/initial_page.dart'
 import 'common/utils/initializer.dart';
 import 'modules/initial/pages/initial_material_app.dart';
 
-
 ///Goto [InitialPage] to setup starting pages of your applications.
 ///
 /// Goto [InitMaterialApp] to setup Material App of your application.
@@ -27,31 +26,8 @@ import 'modules/initial/pages/initial_material_app.dart';
 /// files after running init command of flutter_boilerplate.
 ///
 void main() {
- ///NOTE:- All initializer things for different projects must be added in [Initializer] class's init method.
- Initializer.init(() {
-  runApp(const InitMaterialApp());
- });
+  ///NOTE:- All initializer things for different projects must be added in [Initializer] class's init method.
+  Initializer.init(() {
+    runApp(const InitMaterialApp());
+  });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

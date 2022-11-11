@@ -3,13 +3,9 @@ import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:path_provider/path_provider.dart';
 
 class ImageServices {
-
   static final ImageServices _service = ImageServices._internal();
   factory ImageServices() => _service;
   ImageServices._internal();
-
-
-
 
   Future<String> getCompressedImageFilePath(String filePath) async {
     Directory appDocDir = await getApplicationDocumentsDirectory();
@@ -25,7 +21,4 @@ class ImageServices {
     );
     return result!.path;
   }
-  
-
-
 }

@@ -32,7 +32,7 @@ kLog(String message,{String tag = "TAG",writeLog = false,LogStatus logStatus = L
   }
 
   if(writeLog) {
-    //TODO: add log write functionality in text file
+    /// add log write functionality in text file
     // logService.writeLog("[$tag] :: $message", logStatus);
   }
 }

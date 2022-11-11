@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 
 import '../../modules/initial/pages/initial_page.dart';
 
-
-
+///
 /// define all of your application routes here!!
+///
 abstract class Routes {
   ///--> define your routes here!
   static const INITIAL = '/initial';
-
 }
 
 
+///
 /// define all of your route services here!!
+///
 abstract class RouteServices {
   const RouteServices._();
 
@@ -25,7 +26,7 @@ abstract class RouteServices {
   };
 
 
-  /// TODO: add routing animation here!!
+  ///  add routing animation here!!
   static PageRoute onGenerateRoute(settings, context) {
     /// Custom Route Animations for Custom Pages
     // if (settings.name == "/someRoute") {

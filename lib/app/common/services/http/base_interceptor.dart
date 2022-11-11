@@ -1,11 +1,12 @@
 import 'package:dio/dio.dart';
-
 import '../log/log.dart';
 import 'base_http.dart';
 
-///[BaseHttp] Base-Interceptor.
+///[
+///BaseHttp] Base-Interceptor.
 ///
 /// Handle your errors, auth-check and more of your http requests here!
+///
 class BaseInterceptor implements InterceptorsWrapper {
 
   ///Set basic headers of your application with custom token and fields here!

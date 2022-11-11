@@ -32,7 +32,7 @@ abstract class RouteServices {
   };
 
 
-  /// TODO: add routing animation here!!
+  /// add routing animation here!!
   static PageRoute onGenerateRoute(settings, context) {
     /// Custom Route Animations for Custom Pages
     // if (settings.name == "/someRoute") {

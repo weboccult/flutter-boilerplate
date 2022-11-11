@@ -19,7 +19,7 @@ class BaseInterceptor implements InterceptorsWrapper {
 
   @override
   void onError(DioError err, ErrorInterceptorHandler handler) {
-    // TODO: implement onError
+    // implement onError
 
     kLog("onError Interceptor $err");
     kLog("onError Interceptor ${err.message}");
@@ -28,7 +28,7 @@ class BaseInterceptor implements InterceptorsWrapper {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     kLog("onRequest Interceptor ${options.uri}");
-    // TODO: implement onRequest
+    //implement onRequest
 
     options.headers = getHeaders();
     handler.next(options);
@@ -37,7 +37,7 @@ class BaseInterceptor implements InterceptorsWrapper {
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     kLog("onResponse Interceptor ${response.data}");
-    // TODO: implement onResponse
+    // implement onResponse
 
     handler.next(response);
   }

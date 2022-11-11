@@ -3,9 +3,6 @@ import 'package:speech_to_text/speech_to_text.dart';
 
 import '../../app/common/services/log/log.dart';
 
-
-
-
 class SSTService {
   //---> Singleton Creation
   static final SSTService _service = SSTService._internal();
@@ -15,7 +12,7 @@ class SSTService {
   final SpeechToText _speechToText = SpeechToText();
 
   /// This has to happen only once per app
-Future initSpeechToText() async {
+  Future initSpeechToText() async {
     await _speechToText.initialize();
     kLog("SST Initialized!");
   }
@@ -23,9 +20,7 @@ Future initSpeechToText() async {
   /// Each time to start a speech recognition session
   void startListening({required void Function(SpeechRecognitionResult?) speechListenFunction}) async {
     kLog("Listening...!!!");
-    await _speechToText.listen(
-        pauseFor: const Duration(seconds: 5),
-        onResult: speechListenFunction);
+    await _speechToText.listen(pauseFor: const Duration(seconds: 5), onResult: speechListenFunction);
   }
 
   /// Manually stop the active speech recognition session
@@ -36,7 +31,4 @@ Future initSpeechToText() async {
     kLog("STOP Listening...!!!");
     await _speechToText.stop();
   }
-
-
-
 }

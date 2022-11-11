@@ -1,9 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_boilerplate/app/common/services/navigation/navigation.dart';
 import '../../../common/services/http/base_http.dart';
-
-
 
 ///[InitialPage] is the entry page of your application where you check the Authentication Status.
 ///
@@ -20,8 +17,6 @@ class InitialPage extends StatefulWidget {
 }
 
 class _InitialPageState extends State<InitialPage> {
-
-
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -42,14 +37,15 @@ class _InitialPageState extends State<InitialPage> {
     /// if your application is not using authentication functionality then edit the below code and add your own initial page logic!!
     return StreamBuilder<AuthStatus>(
       stream: BaseHttp.getAuthenticationStream,
-      builder: (context,AsyncSnapshot<AuthStatus> snapshot) {
-        if(snapshot.data == AuthStatus.valid) {
+      builder: (context, AsyncSnapshot<AuthStatus> snapshot) {
+        if (snapshot.data == AuthStatus.valid) {
           ///ADD your application Home Page
           // return HomePage();
-        } else if(snapshot.data == AuthStatus.inValid) {
+        } else if (snapshot.data == AuthStatus.inValid) {
           ///ADD your application Auth Page
           // return  AuthPage();
         }
+
         ///ADD your application Loading or Initial Screen Page
         return Container();
       },

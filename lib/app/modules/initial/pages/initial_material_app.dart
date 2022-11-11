@@ -5,17 +5,16 @@ import '../../../common/data/constants/constants.dart';
 import '../../../common/routes/route_service.dart';
 import '../../../common/services/navigation/navigation.dart';
 
-
-
 class InitMaterialApp extends StatelessWidget {
   const InitMaterialApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
       title: Constants.appName,
       debugShowCheckedModeBanner: false,
-      //TODO: use onGenerateRoute for Custom Routing/Navigation Animations
+
+      /// Use onGenerateRoute for Custom Routing/Navigation Animations
       // onGenerateRoute: (settings) => Routes.onGenerateRoute(settings,context),
       initialRoute: RouteServices.STARTING_POINT,
       routes: RouteServices.routes,
