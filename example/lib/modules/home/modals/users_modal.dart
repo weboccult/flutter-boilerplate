@@ -1,5 +1,3 @@
-
-
 class UserDTO {
   int? id;
   String? name;
@@ -12,13 +10,13 @@ class UserDTO {
 
   UserDTO(
       {this.id,
-        this.name,
-        this.username,
-        this.email,
-        this.address,
-        this.phone,
-        this.website,
-        this.company});
+      this.name,
+      this.username,
+      this.email,
+      this.address,
+      this.phone,
+      this.website,
+      this.company});
 
   UserDTO.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -26,11 +24,11 @@ class UserDTO {
     username = json['username'];
     email = json['email'];
     address =
-    json['address'] != null ? Address.fromJson(json['address']) : null;
+        json['address'] != null ? Address.fromJson(json['address']) : null;
     phone = json['phone'];
     website = json['website'];
     company =
-    json['company'] != null ? Company.fromJson(json['company']) : null;
+        json['company'] != null ? Company.fromJson(json['company']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -50,6 +48,7 @@ class UserDTO {
     return data;
   }
 }
+
 ///---> SUB MODALS
 
 class Address {

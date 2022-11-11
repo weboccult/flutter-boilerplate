@@ -119,21 +119,35 @@ class BasicUtils {
   static bool isVideo(String filePath) {
     var ext = filePath.toLowerCase();
 
-    return ext.endsWith(".mp4") || ext.endsWith(".avi") || ext.endsWith(".wmv") || ext.endsWith(".rmvb") || ext.endsWith(".mpg") || ext.endsWith(".mpeg") || ext.endsWith(".3gp");
+    return ext.endsWith(".mp4") ||
+        ext.endsWith(".avi") ||
+        ext.endsWith(".wmv") ||
+        ext.endsWith(".rmvb") ||
+        ext.endsWith(".mpg") ||
+        ext.endsWith(".mpeg") ||
+        ext.endsWith(".3gp");
   }
 
   /// Checks if string is an image file.
   static bool isImage(String filePath) {
     final ext = filePath.toLowerCase();
 
-    return ext.endsWith(".jpg") || ext.endsWith(".jpeg") || ext.endsWith(".png") || ext.endsWith(".gif") || ext.endsWith(".bmp");
+    return ext.endsWith(".jpg") ||
+        ext.endsWith(".jpeg") ||
+        ext.endsWith(".png") ||
+        ext.endsWith(".gif") ||
+        ext.endsWith(".bmp");
   }
 
   /// Checks if string is an audio file.
   static bool isAudio(String filePath) {
     final ext = filePath.toLowerCase();
 
-    return ext.endsWith(".mp3") || ext.endsWith(".wav") || ext.endsWith(".wma") || ext.endsWith(".amr") || ext.endsWith(".ogg");
+    return ext.endsWith(".mp3") ||
+        ext.endsWith(".wav") ||
+        ext.endsWith(".wma") ||
+        ext.endsWith(".amr") ||
+        ext.endsWith(".ogg");
   }
 
   /// Checks if string is an powerpoint file.
@@ -188,13 +202,16 @@ class BasicUtils {
   }
 
   /// Checks if string is a valid username.
-  static bool isUsername(String s) => hasMatch(s, r'^[a-zA-Z0-9][a-zA-Z0-9_.]+[a-zA-Z0-9]$');
+  static bool isUsername(String s) =>
+      hasMatch(s, r'^[a-zA-Z0-9][a-zA-Z0-9_.]+[a-zA-Z0-9]$');
 
   /// Checks if string is URL.
-  static bool isURL(String s) => hasMatch(s, r"^((((H|h)(T|t)|(F|f))(T|t)(P|p)((S|s)?))\://)?(www.|[a-zA-Z0-9].)[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,6}(\:[0-9]{1,5})*(/($|[a-zA-Z0-9\.\,\;\?\'\\\+&amp;%\$#\=~_\-]+))*$");
+  static bool isURL(String s) => hasMatch(s,
+      r"^((((H|h)(T|t)|(F|f))(T|t)(P|p)((S|s)?))\://)?(www.|[a-zA-Z0-9].)[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,6}(\:[0-9]{1,5})*(/($|[a-zA-Z0-9\.\,\;\?\'\\\+&amp;%\$#\=~_\-]+))*$");
 
   /// Checks if string is email.
-  static bool isEmail(String s) => hasMatch(s, r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
+  static bool isEmail(String s) => hasMatch(s,
+      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
 
   /// Checks if string is phone number.
   static bool isPhoneNumber(String s) {
@@ -203,25 +220,30 @@ class BasicUtils {
   }
 
   /// Checks if string is DateTime (UTC or Iso8601).
-  static bool isDateTime(String s) => hasMatch(s, r'^\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2}:\d{2}.\d{3}Z?$');
+  static bool isDateTime(String s) =>
+      hasMatch(s, r'^\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2}:\d{2}.\d{3}Z?$');
 
   /// Checks if string is MD5 hash.
   static bool isMD5(String s) => hasMatch(s, r'^[a-f0-9]{32}$');
 
   /// Checks if string is SHA1 hash.
-  static bool isSHA1(String s) => hasMatch(s, r'(([A-Fa-f0-9]{2}\:){19}[A-Fa-f0-9]{2}|[A-Fa-f0-9]{40})');
+  static bool isSHA1(String s) =>
+      hasMatch(s, r'(([A-Fa-f0-9]{2}\:){19}[A-Fa-f0-9]{2}|[A-Fa-f0-9]{40})');
 
   /// Checks if string is SHA256 hash.
-  static bool isSHA256(String s) => hasMatch(s, r'([A-Fa-f0-9]{2}\:){31}[A-Fa-f0-9]{2}|[A-Fa-f0-9]{64}');
+  static bool isSHA256(String s) =>
+      hasMatch(s, r'([A-Fa-f0-9]{2}\:){31}[A-Fa-f0-9]{2}|[A-Fa-f0-9]{64}');
 
   /// Checks if string is SSN (Social Security Number).
-  static bool isSSN(String s) => hasMatch(s, r'^(?!0{3}|6{3}|9[0-9]{2})[0-9]{3}-?(?!0{2})[0-9]{2}-?(?!0{4})[0-9]{4}$');
+  static bool isSSN(String s) => hasMatch(s,
+      r'^(?!0{3}|6{3}|9[0-9]{2})[0-9]{3}-?(?!0{2})[0-9]{2}-?(?!0{4})[0-9]{4}$');
 
   /// Checks if string is binary.
   static bool isBinary(String s) => hasMatch(s, r'^[0-1]+$');
 
   /// Checks if string is IPv4.
-  static bool isIPv4(String s) => hasMatch(s, r'^(?:(?:^|\.)(?:2(?:5[0-5]|[0-4]\d)|1?\d?\d)){4}$');
+  static bool isIPv4(String s) =>
+      hasMatch(s, r'^(?:(?:^|\.)(?:2(?:5[0-5]|[0-4]\d)|1?\d?\d)){4}$');
 
   /// Checks if string is IPv6.
   static bool isIPv6(String s) => hasMatch(s,
@@ -229,11 +251,15 @@ class BasicUtils {
 
   /// Checks if string is hexadecimal.
   /// Example: HexColor => #12F
-  static bool isHexadecimal(String s) => hasMatch(s, r'^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$');
+  static bool isHexadecimal(String s) =>
+      hasMatch(s, r'^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$');
 
   /// Checks if string is Palindrom.
   static bool isPalindrom(String string) {
-    final cleanString = string.toLowerCase().replaceAll(RegExp(r"\s+"), '').replaceAll(RegExp(r"[^0-9a-zA-Z]+"), "");
+    final cleanString = string
+        .toLowerCase()
+        .replaceAll(RegExp(r"\s+"), '')
+        .replaceAll(RegExp(r"[^0-9a-zA-Z]+"), "");
 
     for (var i = 0; i < cleanString.length; i++) {
       if (cleanString[i] != cleanString[cleanString.length - i - 1]) {
@@ -277,10 +303,12 @@ class BasicUtils {
   }
 
   /// Checks if string is Passport No.
-  static bool isPassport(String s) => hasMatch(s, r'^(?!^0+$)[a-zA-Z0-9]{6,9}$');
+  static bool isPassport(String s) =>
+      hasMatch(s, r'^(?!^0+$)[a-zA-Z0-9]{6,9}$');
 
   /// Checks if string is Currency.
-  static bool isCurrency(String s) => hasMatch(s, r'^(S?\$|\₩|Rp|\¥|\€|\₹|\₽|fr|R\$|R)?[ ]?[-]?([0-9]{1,3}[,.]([0-9]{3}[,.])*[0-9]{3}|[0-9]+)([,.][0-9]{1,2})?( ?(USD?|AUD|NZD|CAD|CHF|GBP|CNY|EUR|JPY|IDR|MXN|NOK|KRW|TRY|INR|RUB|BRL|ZAR|SGD|MYR))?$');
+  static bool isCurrency(String s) => hasMatch(s,
+      r'^(S?\$|\₩|Rp|\¥|\€|\₹|\₽|fr|R\$|R)?[ ]?[-]?([0-9]{1,3}[,.]([0-9]{3}[,.])*[0-9]{3}|[0-9]+)([,.][0-9]{1,2})?( ?(USD?|AUD|NZD|CAD|CHF|GBP|CNY|EUR|JPY|IDR|MXN|NOK|KRW|TRY|INR|RUB|BRL|ZAR|SGD|MYR))?$');
 
   /// Checks if length of data is GREATER than maxLength.
   static bool isLengthGreaterThan(dynamic value, int maxLength) {
@@ -308,7 +336,8 @@ class BasicUtils {
   ///
   /// This method is deprecated, use [isLengthLessThan] instead
   @deprecated
-  static bool isLengthLowerThan(dynamic value, int maxLength) => isLengthLessThan(value, maxLength);
+  static bool isLengthLowerThan(dynamic value, int maxLength) =>
+      isLengthLessThan(value, maxLength);
 
   /// Checks if length of data is LESS than maxLength.
   static bool isLengthLessThan(dynamic value, int maxLength) {
@@ -324,7 +353,8 @@ class BasicUtils {
   ///
   /// This method is deprecated, use [isLengthLessOrEqual] instead
   @deprecated
-  static bool isLengthLowerOrEqual(dynamic value, int maxLength) => isLengthLessOrEqual(value, maxLength);
+  static bool isLengthLowerOrEqual(dynamic value, int maxLength) =>
+      isLengthLessOrEqual(value, maxLength);
 
   /// Checks if length of data is LESS OR EQUAL to maxLength.
   static bool isLengthLessOrEqual(dynamic value, int maxLength) {
@@ -354,7 +384,8 @@ class BasicUtils {
       return false;
     }
 
-    return isLengthGreaterOrEqual(value, minLength) && isLengthLessOrEqual(value, maxLength);
+    return isLengthGreaterOrEqual(value, minLength) &&
+        isLengthLessOrEqual(value, maxLength);
   }
 
   /// Checks if a contains b (Treating or interpreting upper- and lowercase
@@ -537,7 +568,9 @@ class BasicUtils {
         continue;
       }
       sb.write(char);
-      var isEndOfWord = nextChar == null || (_upperAlphaRegex.hasMatch(nextChar) && !isAllCaps) || _symbolSet.contains(nextChar);
+      var isEndOfWord = nextChar == null ||
+          (_upperAlphaRegex.hasMatch(nextChar) && !isAllCaps) ||
+          _symbolSet.contains(nextChar);
       if (isEndOfWord) {
         words.add('$sb');
         sb.clear();
@@ -551,7 +584,9 @@ class BasicUtils {
     if (isNullOrBlank(text)!) {
       return null;
     }
-    return _groupIntoWords(text!).map((word) => word.toLowerCase()).join(separator);
+    return _groupIntoWords(text!)
+        .map((word) => word.toLowerCase())
+        .join(separator);
   }
 
   /// param-case

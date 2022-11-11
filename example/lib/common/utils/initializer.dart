@@ -6,7 +6,6 @@ import '../services/http/base_http.dart';
 import '../services/log/log.dart';
 import 'lifecycle_handler.dart';
 
-
 abstract class Initializer {
   static init(VoidCallback runApp) {
     ErrorWidget.builder = (errorDetails) {
@@ -18,13 +17,15 @@ abstract class Initializer {
       WidgetsFlutterBinding.ensureInitialized();
       FlutterError.onError = (details) {
         FlutterError.dumpErrorToConsole(details);
-        kLog( details.stack.toString(),logStatus: LogStatus.ERROR,tag: 'INITIALIZER');
+        kLog(details.stack.toString(),
+            logStatus: LogStatus.ERROR, tag: 'INITIALIZER');
       };
 
       await _initServices();
       runApp();
     }, (error, stack) {
-      kLog('runZonedGuarded: ${error.toString()}',logStatus: LogStatus.ERROR,tag: 'INITIALIZER');
+      kLog('runZonedGuarded: ${error.toString()}',
+          logStatus: LogStatus.ERROR, tag: 'INITIALIZER');
     });
   }
 
@@ -38,7 +39,6 @@ abstract class Initializer {
       rethrow;
     }
   }
-
 
   static Future<void> _initBaseHTTPService() async {
     await BaseHttp.initializeAPIServices();
@@ -55,7 +55,3 @@ abstract class Initializer {
     ]);
   }
 }
-
-
-
-

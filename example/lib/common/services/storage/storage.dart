@@ -1,4 +1,3 @@
-
 import 'package:get_storage/get_storage.dart';
 
 abstract class AppStorage {
@@ -13,9 +12,8 @@ abstract class AppStorage {
       _storage.write(key, value);
 
   static Future<void> updateNewValue(String key, dynamic value) async {
-    if(getValue(key) != value) _storage.write(key, value);
+    if (getValue(key) != value) _storage.write(key, value);
   }
-
 
   static T? getValue<T>(String key) => _storage.read<T>(key);
 

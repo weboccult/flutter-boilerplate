@@ -15,14 +15,15 @@ class StorageListenerWidget extends StatefulWidget {
   final String listenKey;
   final GetStorage? storage;
   final Widget Function(dynamic value) builder;
-  const StorageListenerWidget({Key? key, required this.listenKey, required this.builder, this.storage}) : super(key: key);
+  const StorageListenerWidget(
+      {Key? key, required this.listenKey, required this.builder, this.storage})
+      : super(key: key);
 
   @override
   State<StorageListenerWidget> createState() => _StorageListenerWidgetState();
 }
 
 class _StorageListenerWidgetState extends State<StorageListenerWidget> {
-
   _listeningCallBack(data) {
     if (mounted && isBuildDone) {
       setState(() {});

@@ -1,11 +1,5 @@
-
-
-
-
 import '../utils/utils.dart';
 import '../data/strings/strings.dart';
-
-
 
 abstract class Validators {
   static String? validateEmpty(String? v) {
@@ -73,7 +67,6 @@ abstract class Validators {
       return null;
     }
   }
-
 
   static String? validateOTPCode(String? v) {
     if (v!.isEmpty) {

@@ -27,12 +27,14 @@ abstract class Initializer {
       WidgetsFlutterBinding.ensureInitialized();
       FlutterError.onError = (details) {
         FlutterError.dumpErrorToConsole(details);
-        kLog(details.stack.toString(), logStatus: LogStatus.ERROR, tag: initializerTag);
+        kLog(details.stack.toString(),
+            logStatus: LogStatus.ERROR, tag: initializerTag);
       };
       await _initServices();
       runApp();
     }, (error, stack) {
-      kLog('runZonedGuarded: ${error.toString()}', logStatus: LogStatus.ERROR, tag: initializerTag);
+      kLog('runZonedGuarded: ${error.toString()}',
+          logStatus: LogStatus.ERROR, tag: initializerTag);
     });
   }
 

@@ -10,7 +10,6 @@ import '../../../../common/widgets/listener/storage_listener_widget.dart';
 import '../../../../services/api_services.dart';
 import '../../controllers/home_controller.dart';
 
-
 class CombinedHttpAndStorageListenerExample extends StatelessWidget {
   const CombinedHttpAndStorageListenerExample({Key? key}) : super(key: key);
 
@@ -18,7 +17,9 @@ class CombinedHttpAndStorageListenerExample extends StatelessWidget {
   Widget build(BuildContext context) {
     final HomeController hC = HomeController();
     return Scaffold(
-      appBar: AppBar(title: const Text("Http & Storage Listener Widget Combined Example Page")),
+      appBar: AppBar(
+          title: const Text(
+              "Http & Storage Listener Widget Combined Example Page")),
       body: Container(
           margin: const EdgeInsets.symmetric(horizontal: 15.0),
           child: Column(
@@ -31,13 +32,13 @@ class CombinedHttpAndStorageListenerExample extends StatelessWidget {
                 storage: AppStorage.storage,
                 listenKey: StorageKeys.randomIDKey,
                 builder: (randomID) {
-                  if(randomID == null) {
+                  if (randomID == null) {
                     return const Text('no data in storage!');
                   }
                   return HttpWidget(
                     key: ValueKey('$randomID'),
                     errorWidget: const Text('Error in getting data!'),
-                    loader:  CustomLoaders.circularLoader(),
+                    loader: CustomLoaders.circularLoader(),
                     api: hC.getRandomPOSTS(randomID),
                     useCache: true,
                     apiURL: '${ApiStrings.postsAPIString}/$randomID',
@@ -55,9 +56,15 @@ class CombinedHttpAndStorageListenerExample extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 height: 50.0,
-                child: ElevatedButton(onPressed: () {
-                  AppStorage.updateValue(StorageKeys.randomIDKey,int.parse(BasicUtils.getRandomString(2,isNumber: true).toString()));
-                }, child: const Text('update data')),
+                child: ElevatedButton(
+                    onPressed: () {
+                      AppStorage.updateValue(
+                          StorageKeys.randomIDKey,
+                          int.parse(
+                              BasicUtils.getRandomString(2, isNumber: true)
+                                  .toString()));
+                    },
+                    child: const Text('update data')),
               ),
             ],
           )),

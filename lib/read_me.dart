@@ -1,6 +1,5 @@
 library base_application;
 
-
 ///------- Init Base Project ----------
 /// COMMAND:- flutter pub run base_application:init
 /// NOTE:
@@ -36,8 +35,6 @@ library base_application;
 /// AUDIO PLAYER -> https://pub.dev/packages/flutter_tts
 /// current_version : flutter_tts: ^3.5.3
 ///--------------------------------------------------------------
-
-
 
 ///------- Init Base Project ----------
 /// COMMAND:- flutter pub run base_application:init

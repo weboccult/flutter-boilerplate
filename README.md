@@ -16,8 +16,8 @@ All the Basic Project Files are directly included in your `lib` folder, hence yo
  - add the following in your `pubspec.yaml`:
 
 ```yaml
-dependencies:
-  flutter_boilerplate: ^0.0.5
+dev_dependencies:
+  flutter_boilerplate: ^0.0.6
 ```
 
 

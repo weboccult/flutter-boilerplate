@@ -37,5 +37,6 @@ extension Convert on String {
   }
 
   /// Capitalization of First letter in a Strings
-  String toCapitalized() => length > 0 ? '${this[0].toUpperCase()}${substring(1).toLowerCase()}' : '';
+  String toCapitalized() =>
+      length > 0 ? '${this[0].toUpperCase()}${substring(1).toLowerCase()}' : '';
 }

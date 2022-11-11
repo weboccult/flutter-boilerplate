@@ -5,14 +5,11 @@ import 'base_http.dart';
 
 ///--> Interceptor
 class BaseInterceptor implements InterceptorsWrapper {
-
-
-
   getHeaders() {
     var headers = <String, String>{'Content-Type': 'application/json'};
     String? token = BaseHttp.getToken();
-    if(token != null) {
-      headers['Authorization'] =  "bearer " '$token';
+    if (token != null) {
+      headers['Authorization'] = "bearer " '$token';
     }
     return headers;
   }

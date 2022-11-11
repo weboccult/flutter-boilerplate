@@ -10,7 +10,6 @@ abstract class Routes {
   static const INITIAL = '/initial';
 }
 
-
 ///
 /// define all of your route services here!!
 ///
@@ -25,7 +24,6 @@ abstract class RouteServices {
     Routes.INITIAL: (context) => const InitialPage(),
   };
 
-
   ///  add routing animation here!!
   static PageRoute onGenerateRoute(settings, context) {
     /// Custom Route Animations for Custom Pages
@@ -35,6 +33,7 @@ abstract class RouteServices {
     //       pageBuilder: (_, __, ___) => Routes.routes[settings.name]!(context),
     //       transitionsBuilder: (_, a, __, c) => FadeTransition(opacity: a, child: c));
     // }
-    return MaterialPageRoute(builder: (_) => RouteServices.routes[settings.name]!(context));
+    return MaterialPageRoute(
+        builder: (_) => RouteServices.routes[settings.name]!(context));
   }
 }

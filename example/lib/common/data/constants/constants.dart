@@ -1,5 +1,3 @@
-
-
 import '../../env/environment.dart';
 import '../../env/types/staging.env.dart';
 
@@ -9,13 +7,8 @@ class Constants {
   factory Constants() => _;
   Constants._internal();
 
-
   static const appName = 'Example BoilerPlate Application';
 
   ///--> Change ENV Here!
   static Environment env = Staging();
-
-
-
-
 }

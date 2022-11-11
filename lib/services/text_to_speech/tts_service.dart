@@ -11,7 +11,8 @@ class TTSService {
   static bool appInBackground = false;
 
   initialize() async {
-    await _tts.setIosAudioCategory(IosTextToSpeechAudioCategory.playback, [IosTextToSpeechAudioCategoryOptions.defaultToSpeaker]);
+    await _tts.setIosAudioCategory(IosTextToSpeechAudioCategory.playback,
+        [IosTextToSpeechAudioCategoryOptions.defaultToSpeaker]);
     if (Platform.isIOS) {
       var voice = {"name": "Alex", "locale": "en-US"};
       _tts.setVoice(voice);

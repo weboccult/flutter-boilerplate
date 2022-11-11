@@ -18,33 +18,29 @@ class HomeController {
   getUserName() {
     return AppStorage.getValue(StorageKeys.userNameKey);
   }
-  
-  
-  Future getUsers() {
-    return baseHttp.get(endPointURL: ApiStrings.usersAPIString,addToCache: true);
-  }
 
+  Future getUsers() {
+    return baseHttp.get(
+        endPointURL: ApiStrings.usersAPIString, addToCache: true);
+  }
 
   Future getRandomPOSTS(int randomID) {
-    return baseHttp.get(endPointURL: '${ApiStrings.postsAPIString}/$randomID',addToCache: true);
+    return baseHttp.get(
+        endPointURL: '${ApiStrings.postsAPIString}/$randomID',
+        addToCache: true);
   }
-
-
-
 
   goToHTTPWidgetExamplePage() {
     navigationService.to(name: Routes.HTTP_WIDGET_EXAMPLE_PAGE);
-
   }
+
   goToStorageListenerExampleWidget() {
     navigationService.to(name: Routes.STORAGE_LISTENER_EXAMPLE_PAGE);
   }
+
   goToCombinedHttpAndStorageListenerWidget() {
-    navigationService.to(name: Routes.COMBINED_HTTP_WIDGET_AND_STORAGE_LISTENR_WIDGET_EXAMPLE_PAGE);
+    navigationService.to(
+        name: Routes
+            .COMBINED_HTTP_WIDGET_AND_STORAGE_LISTENR_WIDGET_EXAMPLE_PAGE);
   }
-  
-
-
-
-
 }

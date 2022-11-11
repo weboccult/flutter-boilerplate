@@ -18,9 +18,12 @@ class SSTService {
   }
 
   /// Each time to start a speech recognition session
-  void startListening({required void Function(SpeechRecognitionResult?) speechListenFunction}) async {
+  void startListening(
+      {required void Function(SpeechRecognitionResult?)
+          speechListenFunction}) async {
     kLog("Listening...!!!");
-    await _speechToText.listen(pauseFor: const Duration(seconds: 5), onResult: speechListenFunction);
+    await _speechToText.listen(
+        pauseFor: const Duration(seconds: 5), onResult: speechListenFunction);
   }
 
   /// Manually stop the active speech recognition session

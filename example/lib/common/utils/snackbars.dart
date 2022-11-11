@@ -1,13 +1,9 @@
-
-
 import 'package:flutter/material.dart';
-
 
 enum SnackBarType { ERROR, INFO, SUCCESS, WARNING }
 
-
 ///--> Get the SnackBar Color For different Response
- _getSnackBarColor(SnackBarType type) {
+_getSnackBarColor(SnackBarType type) {
   return Colors.black;
   // switch (type) {
   //   case SnackBarType.ERROR:
@@ -24,7 +20,7 @@ enum SnackBarType { ERROR, INFO, SUCCESS, WARNING }
 }
 
 ///--> Get the SnackBar Icon For different Response
- _getSnackBarIcon(SnackBarType type) {
+_getSnackBarIcon(SnackBarType type) {
   /*switch (type) {
     case SnackBarType.ERROR:
       return Container(
@@ -65,10 +61,11 @@ enum SnackBarType { ERROR, INFO, SUCCESS, WARNING }
   }*/
 }
 
-
 ///--> Show SnackBar
 showSnackBar(
-    {BuildContext? context,required String message, SnackBarType type = SnackBarType.SUCCESS}) {
+    {BuildContext? context,
+    required String message,
+    SnackBarType type = SnackBarType.SUCCESS}) {
   ///Clearing all Snack bars!!
   /*ScaffoldMessenger.of(context ?? Get.context!).clearSnackBars();
   ScaffoldMessenger.of(context ?? Get.context!).showSnackBar(

@@ -8,15 +8,14 @@ import 'base_http.dart';
 /// Handle your errors, auth-check and more of your http requests here!
 ///
 class BaseInterceptor implements InterceptorsWrapper {
-
   ///Set basic headers of your application with custom token and fields here!
   ///
   /// [BaseHttp] default headers can also be used.
   getHeaders() {
     var headers = <String, String>{'Content-Type': 'application/json'};
     String? token = BaseHttp.getToken();
-    if(token != null) {
-      headers['Authorization'] =  "bearer " '$token';
+    if (token != null) {
+      headers['Authorization'] = "bearer " '$token';
     }
     return headers;
   }
@@ -29,7 +28,6 @@ class BaseInterceptor implements InterceptorsWrapper {
     handler.next(err);
   }
 
-
   ///request handler of [BaseHttp].
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
@@ -38,7 +36,6 @@ class BaseInterceptor implements InterceptorsWrapper {
     options.headers = getHeaders();
     handler.next(options);
   }
-
 
   ///response handler of [BaseHttp].
   @override

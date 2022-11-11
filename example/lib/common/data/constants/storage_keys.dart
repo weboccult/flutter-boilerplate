@@ -1,4 +1,3 @@
-
 import '../../env/environment.dart';
 import '../../env/types/staging.env.dart';
 
@@ -13,7 +12,4 @@ class StorageKeys {
   static const randomStringKey = 'random_string';
 
   static const randomIDKey = 'random_id';
-
-
-
 }

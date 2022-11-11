@@ -1,8 +1,8 @@
 name: flutter_boilerplate
 description: Flutter boilerplate to kick start your application development process. This Package includes ready use Project Structure, Basic Service Files and Ready to use Widgets.
 # Don't forget to update version in files :- [CHANGELOG.md], [README.md] & [lib/yaml_file/pubspec.yaml].
-version: 0.0.5
-homepage: 'https://github.com/weboccult/flutter_boilerplate/tree/0.5.0'
+version: 0.0.6
+homepage: 'https://github.com/weboccult/flutter_boilerplate'
 
 environment:
   sdk: '>=2.18.2 <3.0.0'

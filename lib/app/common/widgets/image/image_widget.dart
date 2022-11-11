@@ -7,8 +7,16 @@ class NetworkImageWidget extends StatelessWidget {
   final String? url;
   final Widget errorWidget;
   final BoxFit boxFit;
-  final Widget Function(BuildContext context, Widget child, ImageChunkEvent? loadingProgress)? loadingWidget;
-  const NetworkImageWidget({Key? key, required this.url, required this.errorWidget, required this.boxFit, this.loadingWidget}) : super(key: key);
+  final Widget Function(
+          BuildContext context, Widget child, ImageChunkEvent? loadingProgress)?
+      loadingWidget;
+  const NetworkImageWidget(
+      {Key? key,
+      required this.url,
+      required this.errorWidget,
+      required this.boxFit,
+      this.loadingWidget})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

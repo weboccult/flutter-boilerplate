@@ -1,7 +1,6 @@
-
 import '../environment.dart';
 
-class Staging  extends Environment {
+class Staging extends Environment {
   @override
   String apiUrl() {
     return "";
@@ -16,7 +15,6 @@ class Staging  extends Environment {
   String buildNumber() {
     return "100";
   }
-
 
   @override
   String appVersion() {

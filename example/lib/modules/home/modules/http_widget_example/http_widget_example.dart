@@ -5,8 +5,6 @@ import '../../../../common/data/constants/api_strings.dart';
 import '../../../../common/utils/loaders.dart';
 import '../../../../common/widgets/http/http_widget.dart';
 
-
-
 class HttpWidgetExample extends StatelessWidget {
   const HttpWidgetExample({Key? key}) : super(key: key);
 
@@ -20,12 +18,13 @@ class HttpWidgetExample extends StatelessWidget {
           child: HttpWidget(
             key: const ValueKey(ApiStrings.usersAPIString),
             errorWidget: CustomLoaders.circularLoader(),
-            loader:  CustomLoaders.circularLoader(),
+            loader: CustomLoaders.circularLoader(),
             api: hC.getUsers(),
             useCache: true,
             apiURL: ApiStrings.usersAPIString,
             builder: (data) {
-              List<UserDTO> users = (data as List).map((e) => UserDTO.fromJson(e)).toList();
+              List<UserDTO> users =
+                  (data as List).map((e) => UserDTO.fromJson(e)).toList();
               return ListView.builder(
                 itemCount: users.length,
                 shrinkWrap: true,
@@ -39,8 +38,7 @@ class HttpWidgetExample extends StatelessWidget {
                 },
               );
             },
-          )
-      ),
+          )),
     );
   }
 }

@@ -1,4 +1,3 @@
-
 import '../environment.dart';
 
 class Production extends Environment {
@@ -16,7 +15,6 @@ class Production extends Environment {
   String buildNumber() {
     return "100";
   }
-
 
   @override
   String appVersion() {

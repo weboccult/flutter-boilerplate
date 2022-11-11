@@ -1,6 +1,5 @@
 import '../environment.dart';
 
-
 class Production extends Environment {
   @override
   String apiUrl() {
@@ -16,7 +15,6 @@ class Production extends Environment {
   String buildNumber() {
     return "1";
   }
-
 
   @override
   String appVersion() {

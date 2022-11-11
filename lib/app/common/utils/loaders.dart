@@ -9,7 +9,8 @@ import '../services/navigation/navigation.dart';
 ///
 abstract class CustomLoaders {
   /// Circular Progress Indicator.
-  static circularLoader({double size = 50.0, Color? color, double? strokeWidth}) {
+  static circularLoader(
+      {double size = 50.0, Color? color, double? strokeWidth}) {
     return Center(
       child: Container(
         width: size,
@@ -29,13 +30,20 @@ abstract class CustomLoaders {
   static bool _isLoading = false;
 
   /// Full Screen Loading Dialog.
-  static loaderDialog({bool? show, double loaderSize = 50.0, Color? color, double? strokeWidth}) {
+  static loaderDialog(
+      {bool? show,
+      double loaderSize = 50.0,
+      Color? color,
+      double? strokeWidth}) {
     if (show!) {
       _isLoading = show;
       showDialog(
         context: navigationService.context,
         builder: (context) {
-          return WillPopScope(onWillPop: () => Future.value(false), child: circularLoader(color: color, size: loaderSize, strokeWidth: strokeWidth));
+          return WillPopScope(
+              onWillPop: () => Future.value(false),
+              child: circularLoader(
+                  color: color, size: loaderSize, strokeWidth: strokeWidth));
         },
       );
     } else {
@@ -47,7 +55,8 @@ abstract class CustomLoaders {
   }
 
   /// Image loading builder.
-  static Widget imageLoadingBuilder(BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
+  static Widget imageLoadingBuilder(
+      BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
     if (loadingProgress == null) return child;
     return Center(
       child: SizedBox(
@@ -55,7 +64,10 @@ abstract class CustomLoaders {
         height: 20.0,
         child: CircularProgressIndicator(
           color: Colors.black,
-          value: loadingProgress.expectedTotalBytes != null ? loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes! : null,
+          value: loadingProgress.expectedTotalBytes != null
+              ? loadingProgress.cumulativeBytesLoaded /
+                  loadingProgress.expectedTotalBytes!
+              : null,
           strokeWidth: 1.5,
         ),
       ),

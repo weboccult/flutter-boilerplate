@@ -41,7 +41,8 @@ class BaseHttp {
             isStorageReady = true;
           });
     } catch (e) {
-      kLog("error in api cache initialization..", logStatus: LogStatus.ERROR, tag: classTag);
+      kLog("error in api cache initialization..",
+          logStatus: LogStatus.ERROR, tag: classTag);
     }
   }
 
@@ -50,7 +51,10 @@ class BaseHttp {
 
   /// Set MAX-REDIRECTS here!!
   static int maxRedirects = 3;
-  static final Dio _dio = Dio(BaseOptions(baseUrl: baseURL, maxRedirects: maxRedirects, receiveDataWhenStatusError: true));
+  static final Dio _dio = Dio(BaseOptions(
+      baseUrl: baseURL,
+      maxRedirects: maxRedirects,
+      receiveDataWhenStatusError: true));
 
   ///Initialization of API services[BaseHttp]
   ///
@@ -69,7 +73,8 @@ class BaseHttp {
 
   /// append an interceptor from here.
   /// all interceptors added in a row are executed one after another.
-  static appendInterceptor(InterceptorsWrapper interceptor) => _dio.interceptors.add(interceptor);
+  static appendInterceptor(InterceptorsWrapper interceptor) =>
+      _dio.interceptors.add(interceptor);
   static _interceptorsInitialization() {
     ///add more interceptors here!
     _dio.interceptors.add(BaseInterceptor());
@@ -112,12 +117,14 @@ class BaseHttp {
   }
 
   static final _authCheckResponse = StreamController<AuthStatus>();
-  static void Function(AuthStatus) get _addAuthStatus => _authCheckResponse.sink.add;
+  static void Function(AuthStatus) get _addAuthStatus =>
+      _authCheckResponse.sink.add;
 
   ///
   /// Listen to Auth Status Stream.
   ///
-  static Stream<AuthStatus> get getAuthenticationStream => _authCheckResponse.stream;
+  static Stream<AuthStatus> get getAuthenticationStream =>
+      _authCheckResponse.stream;
 
   ///
   /// Closes the auth status_check.
@@ -126,19 +133,25 @@ class BaseHttp {
   static closeAuthStatusResponse() => _authCheckResponse.close();
 
   static _listenToTokenChanges() async {
-    if (!_storage.hasData(_tokenStorageKey)) await _storage.write(_tokenStorageKey, _tokenNotFoundKey);
+    if (!_storage.hasData(_tokenStorageKey))
+      await _storage.write(_tokenStorageKey, _tokenNotFoundKey);
     _storage.listenKey(_tokenStorageKey, (_) => checkAuthStatus());
   }
 
   /// Check authentication status.
-  static checkAuthStatus() => _addAuthStatus(_storage.read(_tokenStorageKey) != null && _storage.read(_tokenStorageKey) != _tokenNotFoundKey ? AuthStatus.valid : AuthStatus.inValid);
+  static checkAuthStatus() =>
+      _addAuthStatus(_storage.read(_tokenStorageKey) != null &&
+              _storage.read(_tokenStorageKey) != _tokenNotFoundKey
+          ? AuthStatus.valid
+          : AuthStatus.inValid);
 
   ///Store authentication data in [apiCacheStorage].
   static storeAuthData(Map<String, dynamic>? data) {
     try {
       _storage.write(_authDataStorageKey, data);
     } catch (e) {
-      kLog("Error storing auth data!", tag: classTag, logStatus: LogStatus.ERROR);
+      kLog("Error storing auth data!",
+          tag: classTag, logStatus: LogStatus.ERROR);
     }
   }
 
@@ -147,7 +160,8 @@ class BaseHttp {
     try {
       return _storage.read(_authDataStorageKey);
     } catch (e) {
-      kLog("Error getting auth data!", tag: classTag, logStatus: LogStatus.ERROR);
+      kLog("Error getting auth data!",
+          tag: classTag, logStatus: LogStatus.ERROR);
     }
     return null;
   }
@@ -181,9 +195,15 @@ class BaseHttp {
   ///
   /// A [StreamBuilder] Widget can be used to get this data. first it will return the cache data and then the response data.
   ///
-  Stream getStream({required String endPointURL, Map<String, dynamic>? queryParameters, Map<String, dynamic>? header, bool useCache = true}) async* {
-    if (useCache && _storage.hasData(endPointURL)) yield _storage.read(endPointURL);
-    Response response = await _dio.get(endPointURL, options: Options(headers: header), queryParameters: queryParameters);
+  Stream getStream(
+      {required String endPointURL,
+      Map<String, dynamic>? queryParameters,
+      Map<String, dynamic>? header,
+      bool useCache = true}) async* {
+    if (useCache && _storage.hasData(endPointURL))
+      yield _storage.read(endPointURL);
+    Response response = await _dio.get(endPointURL,
+        options: Options(headers: header), queryParameters: queryParameters);
     if (response.statusCode == 200) {
       if (useCache) _storage.write(endPointURL, response.data);
       yield response.data;
@@ -195,8 +215,13 @@ class BaseHttp {
   /// Base HTTP get request.
   ///
   /// By default it will store data in [apiCacheStorage] with [endPointURL] as Storage Key.
-  Future<T?> get<T>({required String endPointURL, Map<String, dynamic>? queryParameters, Map<String, dynamic>? header, bool addToCache = true}) async {
-    Response response = await _dio.get(endPointURL, options: Options(headers: header), queryParameters: queryParameters);
+  Future<T?> get<T>(
+      {required String endPointURL,
+      Map<String, dynamic>? queryParameters,
+      Map<String, dynamic>? header,
+      bool addToCache = true}) async {
+    Response response = await _dio.get(endPointURL,
+        options: Options(headers: header), queryParameters: queryParameters);
     if (response.statusCode == 200) {
       if (addToCache) _storage.write(endPointURL, response.data);
       return response.data;
@@ -208,8 +233,13 @@ class BaseHttp {
   /// Base HTTP post request.
   ///
   /// By default it will store data in [apiCacheStorage] with [endPointURL] as Storage Key.
-  Future<T?> post<T>({required String endPointURL, Map<String, dynamic>? data, Map<String, dynamic>? header, bool addToCache = true}) async {
-    Response response = await _dio.post(endPointURL, data: data, options: Options(headers: header));
+  Future<T?> post<T>(
+      {required String endPointURL,
+      Map<String, dynamic>? data,
+      Map<String, dynamic>? header,
+      bool addToCache = true}) async {
+    Response response = await _dio.post(endPointURL,
+        data: data, options: Options(headers: header));
     if (response.statusCode == 200) {
       if (addToCache) _storage.write(endPointURL, response.data);
       return response.data;

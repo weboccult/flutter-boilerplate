@@ -21,7 +21,6 @@ extension HexColor on Color {
       '${blue.toRadixString(16).padLeft(2, '0')}';
 }
 
-
 extension Convert on String {
   Future<String> imagePathToBase64String() async {
     Uint8List tempList = await File(this).readAsBytes();
@@ -30,5 +29,6 @@ extension Convert on String {
 }
 
 extension StringCasingExtension on String {
-  String toCapitalized() => length > 0 ?'${this[0].toUpperCase()}${substring(1).toLowerCase()}':'';
-  }
+  String toCapitalized() =>
+      length > 0 ? '${this[0].toUpperCase()}${substring(1).toLowerCase()}' : '';
+}

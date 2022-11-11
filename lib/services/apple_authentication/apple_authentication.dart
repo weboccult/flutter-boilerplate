@@ -19,7 +19,8 @@ class AppleAuth {
             AppleIDAuthorizationScopes.fullName,
           ],
         );
-        log("Apple Credentials are -> ${credential.email} :: ${credential.givenName} " " ${credential.userIdentifier}");
+        log("Apple Credentials are -> ${credential.email} :: ${credential.givenName} "
+            " ${credential.userIdentifier}");
         return credential;
       }
     } catch (e) {

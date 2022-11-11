@@ -15,7 +15,18 @@ class ComputeListWidget<T> extends StatefulWidget {
   final Widget Function(T? data) builder;
   final Axis scrollDirection;
   final ScrollController? scrollController;
-  const ComputeListWidget({Key? key, required this.builder, required this.loader, required this.errorWidget, this.errorOrEmptyCondition = errorOrEmptyConditionHandler, required this.dataList, required this.computeFunction, this.scrollDirection = Axis.vertical, this.scrollController, this.wrapperWidget = staticWrapperWidget}) : super(key: key);
+  const ComputeListWidget(
+      {Key? key,
+      required this.builder,
+      required this.loader,
+      required this.errorWidget,
+      this.errorOrEmptyCondition = errorOrEmptyConditionHandler,
+      required this.dataList,
+      required this.computeFunction,
+      this.scrollDirection = Axis.vertical,
+      this.scrollController,
+      this.wrapperWidget = staticWrapperWidget})
+      : super(key: key);
 
   static Widget staticWrapperWidget(child) => Container(child: child);
   static bool errorOrEmptyConditionHandler(data) => false;
@@ -28,12 +39,15 @@ class _ComputeListWidgetState<T> extends State<ComputeListWidget<T>> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<T>>(
-      future: compute<List<dynamic>, List<T>>(widget.computeFunction, widget.dataList),
+      future: compute<List<dynamic>, List<T>>(
+          widget.computeFunction, widget.dataList),
       builder: (context, AsyncSnapshot<List<T>> snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting && !snapshot.hasData) {
+        if (snapshot.connectionState == ConnectionState.waiting &&
+            !snapshot.hasData) {
           return widget.loader;
         }
-        if (snapshot.connectionState == ConnectionState.done && snapshot.data == null) {
+        if (snapshot.connectionState == ConnectionState.done &&
+            snapshot.data == null) {
           return widget.errorWidget;
         }
         return widget.wrapperWidget(ListView.builder(

@@ -7,7 +7,6 @@ import 'package:flutter_boilerplate_example/common/widgets/listener/storage_list
 class StorageListenerWidgetExample extends StatelessWidget {
   const StorageListenerWidgetExample({Key? key}) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,9 +30,12 @@ class StorageListenerWidgetExample extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 height: 50.0,
-                child: ElevatedButton(onPressed: () {
-                  AppStorage.updateValue( StorageKeys.randomStringKey, BasicUtils.getRandomString(20,isNumber: false));
-                }, child: const Text('Update String')),
+                child: ElevatedButton(
+                    onPressed: () {
+                      AppStorage.updateValue(StorageKeys.randomStringKey,
+                          BasicUtils.getRandomString(20, isNumber: false));
+                    },
+                    child: const Text('Update String')),
               ),
             ],
           )),

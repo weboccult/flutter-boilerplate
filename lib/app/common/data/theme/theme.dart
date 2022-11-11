@@ -1,6 +1,4 @@
 ///
 /// add your application theme here!
 ///
-abstract class Theme {
-
-}
+abstract class Theme {}

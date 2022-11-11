@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import '../services/log/log.dart';
 
-
-
 class Handler extends WidgetsBindingObserver {
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) async {
