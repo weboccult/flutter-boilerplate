@@ -1,4 +1,3 @@
-## 0.0.6
+## 0.0.7
 
-* solved static analysis conflicts.
-* formatted documents.
+* Fixed optional arguments not getting import issue.

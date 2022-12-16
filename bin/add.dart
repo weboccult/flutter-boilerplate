@@ -10,7 +10,7 @@ _addAServiceModuleToApp(List<String> args) async {
     for (var arg in args) {
       String outPutPath = 'lib/common/services/$arg/';
       Uri? packageURI = await Isolate.resolvePackageUri(
-          Uri(scheme: 'package', path: 'base_application/services/$arg/'));
+          Uri(scheme: 'package', path: 'flutter_boilerplate/services/$arg/'));
       String? inputFilePath = packageURI?.path;
       if (inputFilePath == null) {
         return;

@@ -17,7 +17,7 @@ All the Basic Project Files are directly included in your `lib` folder, hence yo
 
 ```yaml
 dev_dependencies:
-  flutter_boilerplate: ^0.0.6
+  flutter_boilerplate: ^0.0.7
 ```
 
 
